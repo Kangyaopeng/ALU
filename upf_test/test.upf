@@ -1,0 +1,24 @@
+set_design_top tb
+create_power_domain TOP -elements {u_TOP}
+create_power_domain A   -elements {u_TOP/instA1}
+
+create_supply_port  VDD
+create_supply_port  VDDA
+create_supply_port  VSS
+
+create_supply_net   VDD   -domain   TOP
+create_supply_net   VDDA  -domain   A
+create_supply_net   VSS   -domain   TOP
+create_supply_net   VSS   -domain   A     -reuse
+
+connect_supply_net  VDD   -ports    VDD
+connect_supply_net  VDDA  -ports    VDDA
+connect_supply_net  VSS   -ports    VSS
+
+set_domain_supply_net  TOP  -primary_power_net  VDD  \
+                            -primary_ground_net VSS
+set_domain_supply_net  A    -primary_power_net  VDDA \
+                            -primary_ground_net VSS
+
+set_related_supply_net      -object_list {u_TOP/instA1/out1} -power VDD \
+                            -ground VSS
