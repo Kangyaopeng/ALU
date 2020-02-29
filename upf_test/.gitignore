@@ -1,2 +1,11 @@
-mvsim_native_reports simv* *log verilog.dump *.sdb
-csrc mvdir succeed_test ucli.key *vpd vc_hdrs.h
+mvsim_native_reports
+simv*
+*log
+verilog.dump
+*.sdb
+csrc
+mvdir
+succeed_test
+ucli.key
+*vpd
+vc_hdrs.h
