@@ -1,0 +1,5 @@
+#! /usr/bin/csh
+
+setenv PROJ_VERIFY_HOME `pwd`
+setenv PROJ_HOME {$PROJ_VERIFY_HOME}/..
+#setenv PATH $PROJ_VERIFY_HOME/script:$PATH
